@@ -19,6 +19,7 @@ wemake-python-styleguide = "^0.19.2"
 autoflake = "^2.3.1"
 flake8-pytest-style = "^2.0.0"
 pre-commit = "^4.0.1"
+mypy = "^1.14.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -37,3 +38,9 @@ log_cli_level = "WARNING"
 profile = "black"
 multi_line_output = 3
 src_paths = ["src",]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+strict = true
+show_error_codes = true
