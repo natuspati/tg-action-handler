@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "tg-reader"
+version = "0.1.0"
+description = ""
+authors = ["Nurlat Bekdullayev <natuspati@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^0.25.0"
+pytest-env = "^1.1.5"
+black = "^24.10.0"
+isort = "^5.13.2"
+wemake-python-styleguide = "^0.19.2"
+autoflake = "^2.3.1"
+flake8-pytest-style = "^2.0.0"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest_env]
+JEOPARDY_ENVIRONMENT = "test"
+JEOPARDY_DB_HOST = "localhost"
+JEOPARDY_DB_PORT = "5432"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+log_cli_level = "WARNING"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+src_paths = ["src",]
