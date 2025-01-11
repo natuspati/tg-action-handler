@@ -14,6 +14,7 @@ _logger = logging.getLogger(__name__)
 
 
 async def send_periodic_message() -> None:
+    _logger.info("Starting send periodic message action...")
     tg_service = await get_tg_service()
     while True:
         random_time = get_random_time_within_range()

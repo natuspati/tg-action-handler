@@ -1,5 +1,8 @@
+import time
+
 from telethon import TelegramClient
 
+from base_lib.errors import BaseError
 from credentials import TGCredSchema
 from tg_client.base_client import BaseTGClient
 
@@ -37,5 +40,10 @@ class MainTGClient(BaseTGClient):
 
     def _get_code(self) -> str:
         if not self._login_code:
-            self._login_code = input("Enter code: ")
+            time.sleep(180)
+            with open(".code", "r") as f:
+                code = f.read()
+        if not code:
+            raise BaseError("Failed to read login code")
+        self._login_code = code
         return self._login_code
