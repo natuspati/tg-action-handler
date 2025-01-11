@@ -1,0 +1,1 @@
+from credentials.tg_credentials import TGCredSchema
