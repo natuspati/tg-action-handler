@@ -20,8 +20,10 @@ def get_current_time() -> datetime:
     return datetime.now(tz=settings.time_zone)
 
 
-def get_random_time_within_range() -> datetime:
+def get_random_time_within_range(right_now: bool = False) -> datetime:
     current_time = get_current_time()
+    if right_now:
+        return current_time
 
     start_time = current_time.replace(
         hour=settings.periodic_message_start_time,

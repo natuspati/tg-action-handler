@@ -40,7 +40,7 @@ class MainTGClient(BaseTGClient):
 
     def _get_code(self) -> str:
         if not self._login_code:
-            time.sleep(180)
+            time.sleep(60)
             with open(".code", "r") as f:
                 code = f.read()
         if not code:
